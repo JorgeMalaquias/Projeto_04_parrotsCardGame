@@ -20,7 +20,7 @@ body{
 }
 ul{
     height: fit-content;
-    width: 872px;
+    width: 920px;
     background-color: white;
     display: flex;
     flex-wrap: wrap;
@@ -36,14 +36,17 @@ li{
     align-items: center;
     border: 1px solid #99CEA8;
     border-radius: 5px;
-    margin: 34px;
+    margin-bottom: 34px;
 } 
     
 li img{
     width: 100px;
     height: 100px;
 }
-
+li img:active{
+    width: 200px;
+    height: 200px;
+}
 
 
 
@@ -52,5 +55,8 @@ li img{
     .gameTitle{
         font-size: 36px;
         max-width: 312px;
+    }
+    ul{
+        flex-direction: column;
     }
 }
