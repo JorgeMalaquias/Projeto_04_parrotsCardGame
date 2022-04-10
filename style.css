@@ -27,7 +27,14 @@ ul{
     justify-content: space-between;
     align-items: center;
 }
-li{
+li {
+    margin-bottom: 34px;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    transition: all .5s;
+}
+li div{
     width: 117px;
     height: 146px;
     background-color:#A7E9AF;
@@ -36,19 +43,24 @@ li{
     align-items: center;
     border: 1px solid #99CEA8;
     border-radius: 5px;
-    margin-bottom: 34px;
+    position: absolute;
+    
 } 
     
 li img{
     width: 100px;
     height: 100px;
 }
-li img:active{
-    width: 200px;
-    height: 200px;
+.back{
+    transform: rotateY(180deg);
 }
 
-
+.selecionada{
+    transform: rotateY(180deg);
+}
+.selecionada .front{
+    display: none;
+}
 
 
 @media (max-width: 900px){
