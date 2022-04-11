@@ -72,8 +72,3 @@ function desvirarCartas(){
 	document.querySelector(".selecionada").classList.remove("selecionada");
 	cartasSelecionadas = 0;
 }
-	
-	/*se outra carta for igual
-	carta.classList.add("deuMatch");
-	*/
-	
