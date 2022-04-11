@@ -1,4 +1,6 @@
 
+//!!!!DEFINICAO DE NUMERO DE CARTAS E EMBARALHAMENTO!!!!!
+
 function comparador() { 
 	return Math.random() - 0.5; 
 }
@@ -31,18 +33,24 @@ for(let i=0;i<numeroDeCartas;i++){
 </li>`
 }
 
+
+
+
+
+//VARIAVEIS PARA CONTROLAR A ATUALIZAR Nº DE PARES ENCONTRADOS, Nº DE JOGADAS E CARTAS SELECIONADAS
 let cartasSelecionadas = 0;
 let cartasPareadas = 0;
 let jogadas = 0;
 
+let segundos = 0;
 
+//SELECAO DA CARTA E VERIFICACAO DA IGUALDADE OU NAO DAS DUAS CARTAS VIRADAS
 
 function selecionarCarta(carta){
 	if((!carta.classList.contains("deuMatch")) && cartasSelecionadas<2){
 		jogadas++;
 		cartasSelecionadas++;
-		carta.classList.toggle("selecionada");
-		console.log("cliquei" + cartasSelecionadas);
+		setTimeout(virarCarta(carta), 0500);
 	}
 	if(cartasSelecionadas===2){
 		let img = document.querySelectorAll(".selecionada .figura");
@@ -52,8 +60,11 @@ function selecionarCarta(carta){
 		}else{
 			setTimeout(desvirarCartas, 1000);
 		}
-		
 	}
+}
+
+function virarCarta(carta){
+	carta.classList.toggle("selecionada");
 }
 function parearCartas(){
 	document.querySelector(".selecionada").classList.add("deuMatch");
@@ -63,7 +74,7 @@ function parearCartas(){
 	cartasSelecionadas = 0;
 	cartasPareadas += 2;
 	if(cartasPareadas===numeroDeCartas){
-		alert(`Você ganhou em ${jogadas} jogadas!`);
+		fimDeJogo();
 	}
 }
 	
@@ -71,4 +82,20 @@ function desvirarCartas(){
 	document.querySelector(".selecionada").classList.remove("selecionada");
 	document.querySelector(".selecionada").classList.remove("selecionada");
 	cartasSelecionadas = 0;
+}
+
+function fimDeJogo(){
+	alert(`Você ganhou em ${jogadas} jogadas e levou ${segundos} segundos!`);
+	clearInterval(1);
+
+}
+
+
+//RELOGIO
+
+setInterval(relogio,1000);
+
+function relogio(){
+	segundos++;
+	document.querySelector(".clock").innerHTML = segundos;
 }
